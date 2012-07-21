@@ -35,3 +35,10 @@ Get it on your server
 ```bash
 wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O inginx.zip
 ```
+
+TODO
+---------------
+
+1. add more settings 
+2. add comments
+3. support other languages
