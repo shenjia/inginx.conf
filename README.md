@@ -1,4 +1,4 @@
-php-nginx-conf
+inginx.conf
 ==============
 
 Easy to manage php-based sites behind Nginx.
