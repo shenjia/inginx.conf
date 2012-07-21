@@ -1,12 +1,32 @@
 inginx.conf
 ==============
 
-Easy to manage php-based sites behind Nginx.
+Easy to manage multiple php servers behind Nginx.
 
 Quick start
 -----------
-1. Copy conf to your nginx conf directory.
+
+Before you start, backup your **nginx/conf** directory first.
+
+### 1. Copy `conf` to your nginx conf directory.
 
 ```bash
-cd /usr/local/nginx/conf
+mv conf /usr/local/nginx/conf
 ```
+
+### 2. Create a server config file.
+
+```bash
+cd /usr/local/nginx/conf/servers
+```
+
+Create a server config file by simply make a copy from the example file.
+
+```bash
+cp server.example myserver.conf
+```
+
+Edit **myserver.conf** and setup `server_name` and `root`.
+
+
+### 3. Restart your nginx service.
