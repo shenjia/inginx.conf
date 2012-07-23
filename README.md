@@ -9,7 +9,10 @@ Quick start
 -----------
 
 
-### 1. Copy `conf` to your `nginx/conf` directory.
+### 1. Deploy inginx.conf on your server
+
+You can simply download `deploy.sh` and  
+Copy `conf` to your `nginx/conf` directory.
 
 ```bash
 cp conf /usr/local/nginx/conf
@@ -29,13 +32,6 @@ Edit `myserver.conf` and setup **server_name** and **root**.
 
 ### 3. Restart your nginx service.
 
-Get it on your server
-----------------------
-
-```bash
-wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O inginx.zip
-unzip inginx.zip
-```
 
 TODO
 ---------------
