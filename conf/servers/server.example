@@ -1,8 +1,8 @@
 server {
 
     listen       80;
-    server_name  yourdomain.com;
+    server_name  yourdomain;
     root /path/to/yoursite;
 
-    include i/server/server.conf;
+    include i/server.conf;
 }

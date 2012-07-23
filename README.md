@@ -34,6 +34,7 @@ Get it on your server
 
 ```bash
 wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O inginx.zip
+unzip inginx.zip
 ```
 
 TODO
