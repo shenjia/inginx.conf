@@ -48,11 +48,11 @@ if [[ $ok == "y" ]]; then
         echo "Extracting inginx.conf ..."
         unzip /tmp/inginx.conf.zip 1>/dev/null 2>&1
         echo "Deploying inginx.conf ..."
-        cp -Rf shenjia-inginx.conf*/conf/* .
+        cp -Rf shenjia-inginx.conf*/conf/* $deploypath
         echo "Remove temporary files ..."
         rm -rf shenjia-inginx.conf*
         rm -rf /tmp/inginx.conf.zip
-        echo "Done."
+        echo "Deploy successful, please restart your nginx!"
         exit 0
 else
         # Cancel
