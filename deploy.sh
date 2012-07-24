@@ -4,16 +4,30 @@ echo "Before you continue: "
 echo ""
 echo "    1. Make sure you already BACKUPED all of your nginx configs."
 echo ""
-echo "    2. Make sure you are in [ nginx/conf ] directory right now."
-echo ""
-echo "    3. [ wget ] and [ unzip ] installed."
+echo "    2. Make sure you got [ wget ] and [ unzip ] installed."
 echo "-------------------------------------------------------------------"
 
-echo -e "Is everything ok? (y/n):\c"
+# Get [ nginx/conf ] path
+if [ ! $1 = '' ]
+then
+	# Get path from shell parameter
+	confpath=$1
+else
+	# Get path from nginx -V
+	p=`nginx -V 2>&1`
+	p=${p#*conf-path=}
+	p=${p%%--*}
+	p=${p%/*}
+	confpath=$p
+fi
+
+# Confirm to deploy
+echo -e "Deploy inginx.conf to [ $confpath ]? (y/n):\c"
 read ok
 
 if [ $ok = "y" ]
 then
+	# Deploy
 	echo "Downloading inginx.conf ( from Github )..."
 	wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O /tmp/inginx.conf.zip 1>/dev/null 2>&1
 	echo "Extracting inginx.conf ..."
@@ -26,5 +40,6 @@ then
 	echo "Done."
 	exit 0
 else
+	# Cancel
 	exit -1
 fi
