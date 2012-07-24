@@ -25,15 +25,15 @@ else
                 p=${p#*conf-path=}
                 p=${p%%--*}
                 p=${p%/*}
-				if [[ -d $p ]]; then
-					# Path is valid
-                	deploypath=$p
-				else
-					# Path is invalid
-					echo "Failed to get conf-path from 'nginx -V'."
-                	echo "Please run this script again with deploy path as parameter."
-					exit -1;
-				fi
+                if [[ -d $p ]]; then
+                    # Path is valid
+                    deploypath=$p
+                else
+                    # Path is invalid
+                    echo "Failed to get conf-path from 'nginx -V'."
+                    echo "Please run this script again with deploy path as parameter."
+                    exit -1;
+                fi
         fi
 fi
 
