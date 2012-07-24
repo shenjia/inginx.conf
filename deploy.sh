@@ -16,16 +16,24 @@ else
         p=`nginx -V 2>&1`
 
         if [[ ${p##*: } == "command not found" ]]; then
-                # Fail to get deploy path
+                # Nginx command not found
                 echo "Failed to get deploy path because [ nginx ] command not found"
                 echo "Please run this script again with deploy path as parameter."
                 exit -1;
         else
-                # We have deploy path now
+                # Try to get conf-path
                 p=${p#*conf-path=}
                 p=${p%%--*}
                 p=${p%/*}
-                deploypath=$p
+				if [[ -d $p ]]; then
+					# Path is valid
+                	deploypath=$p
+				else
+					# Path is invalid
+					echo "Failed to get conf-path from 'nginx -V'."
+                	echo "Please run this script again with deploy path as parameter."
+					exit -1;
+				fi
         fi
 fi
 
@@ -33,7 +41,7 @@ fi
 echo -e "Deploy inginx.conf to [ $deploypath ]? (y/n):\c"
 read ok
 
-if [ $ok = "y" ]; then
+if [[ $ok == "y" ]]; then
         # Deploy
         echo "Downloading inginx.conf ( from Github )..."
         wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O /tmp/inginx.conf.zip 1>/dev/null 2>&1
