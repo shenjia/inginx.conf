@@ -44,14 +44,14 @@ read ok
 if [[ $ok == "y" ]]; then
         # Deploy
         echo "Downloading inginx.conf ( from Github )..."
-        wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O /tmp/inginx.conf.zip 1>/dev/null 2>&1
+        sudo wget https://github.com/shenjia/inginx.conf/zipball/master --no-check-certificate -O /tmp/inginx.conf.zip 1>/dev/null 2>&1
         echo "Extracting inginx.conf ..."
-        unzip /tmp/inginx.conf.zip 1>/dev/null 2>&1
+        sudo unzip /tmp/inginx.conf.zip 1>/dev/null 2>&1
         echo "Deploying inginx.conf ..."
-        cp -Rf shenjia-inginx.conf*/conf/* $deploypath
+        sudo cp -Rf shenjia-inginx.conf*/conf/* $deploypath
         echo "Remove temporary files ..."
-        rm -rf shenjia-inginx.conf*
-        rm -rf /tmp/inginx.conf.zip
+        sudo rm -rf shenjia-inginx.conf*
+        sudo rm -rf /tmp/inginx.conf.zip
         echo "Deploy successful, please restart your nginx!"
         exit 0
 else
