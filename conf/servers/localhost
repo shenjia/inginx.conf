@@ -1,7 +1,7 @@
 server {
 
     listen       80;
-    server_name  yourdomain;
+    server_name  localhost;
     root /path/to/yoursite;
 
     include i/server.conf;
